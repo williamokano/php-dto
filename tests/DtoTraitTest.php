@@ -107,6 +107,15 @@ class DtoTraitTest extends PHPUnit_Framework_TestCase
         $this->assertAttributeEquals(['d' => 'okano'], 'dtoProperties', $this->traitObject, 'dtoProperties did not changed the value for 5');
         $this->assertTrue($this->traitObject->changed('d'), 'The property "d" was not flagged as changed');
         $this->assertEquals('okano', $this->traitObject->get('d'));
+
+        // Test changed for non-existing property
+        $property = 'asdasd90asd90asdkkkk!!!';
+        try {
+            $this->traitObject->changed($property);
+            $this->fail(sprintf('Checking the property %s should have failed', $property));
+        } catch (InvalidArgumentException $e) {
+            $this->assertEquals(sprintf('Property %s doesn\'t exist on this object', $property), $e->getMessage(), 'Wrong exception message');
+        }
     }
 
     private function createObjectForTrait()

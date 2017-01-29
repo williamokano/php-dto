@@ -120,7 +120,7 @@ trait Dto
     {
         $this->validateProperty($property);
         if (!$this->hasProperty($property)) {
-            throw new InvalidArgumentException(sprintf('Property %s does\'t exist on this object', $property));
+            throw new InvalidArgumentException(sprintf('Property %s doesn\'t exist on this object', $property));
         }
 
         return array_key_exists($property, $this->dtoChangedProperties) && $this->dtoChangedProperties[$property];
