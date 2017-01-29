@@ -1,4 +1,5 @@
 <?php
+
 namespace Katapoka\Katapoka\Tests;
 
 use Katapoka\Katapoka\Dto;
