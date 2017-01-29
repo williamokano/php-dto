@@ -83,4 +83,5 @@ interface IDto
      * @return $this
      */
     public function cleanAll();
+
 }

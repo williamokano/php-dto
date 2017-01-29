@@ -105,6 +105,7 @@ trait Dto
     public function hasProperty($property)
     {
         $this->validateProperty($property);
+
         return array_key_exists($property, $this->dtoProperties);
     }
 
