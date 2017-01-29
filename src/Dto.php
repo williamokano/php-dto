@@ -22,7 +22,7 @@ trait Dto
      *
      * @var array
      */
-    public $dtoChangedProperties = [];
+    private $dtoChangedProperties = [];
 
     /**
      * Given an data array with Key/Value pair, set the property as the key with the given value.
