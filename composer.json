@@ -3,6 +3,12 @@
     "description": "Simple DTO for PHP",
     "type": "library",
     "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "\\Katapoka\\Katapoka\\": "src/",
+            "\\Katapoka\\Katapoka\\Tests\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "William Okano",
