@@ -6,8 +6,6 @@ use InvalidArgumentException;
 
 /**
  * Trait that adds support to auto generated properties
- *
- * @package Katapoka\Katapoka
  */
 trait Dto
 {
@@ -229,4 +227,5 @@ trait Dto
     {
         $this->dtoChangedProperties[$property] = true;
     }
+
 }
