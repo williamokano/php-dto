@@ -8,3 +8,6 @@ A [trait](http://php.net/trait) and an [interface](http://php.net/interface) to 
 
 # Contributing
 Feel free to contribute, if any error found, open an issue. If you can solve it, and you're in a good mood, feel free to open an pull request.
+
+# Documentation
+For documentation, please read the [wiki](https://github.com/williamokano/php-dto/wiki/PHP-DTO-Documentation).
