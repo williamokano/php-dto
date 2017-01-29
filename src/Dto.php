@@ -56,7 +56,7 @@ trait Dto
     public function set($property, $value)
     {
         $this->validateProperty($property);
-        if ($this->hasProperty($property) && $this->get($property) !== $value) {
+        if (!$this->hasProperty($property) || ($this->hasProperty($property) && $this->get($property) !== $value)) {
             $this->flagAsDirty($property);
         }
 
@@ -124,6 +124,20 @@ trait Dto
         }
 
         return array_key_exists($property, $this->dtoChangedProperties) && $this->dtoChangedProperties[$property];
+    }
+
+    /**
+     * Returns an array containing only the properties marked as changed.
+     *
+     * @return array
+     */
+    public function getChangedProperties()
+    {
+        $changedProperties = array_keys($this->dtoChangedProperties);
+
+        return array_map(function ($property) {
+            return $this->dtoProperties[$property];
+        }, $changedProperties);
     }
 
     /**
@@ -203,7 +217,7 @@ trait Dto
     private function validateProperty($property)
     {
         if (!$this->isKeyValid($property)) {
-            throw new InvalidArgumentException(sprintf('The property %s is an invalid name for properties', $property));
+            throw new InvalidArgumentException(sprintf('The property is an invalid name for properties'));
         }
     }
 

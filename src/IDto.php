@@ -62,6 +62,13 @@ interface IDto
     public function changed($property);
 
     /**
+     * Returns an array containing only the properties marked as changed.
+     *
+     * @return array
+     */
+    public function getChangedProperties();
+
+    /**
      * Resets the DTO cleaning all properties set and settings all the properties as non-changed.
      *
      * @return $this
