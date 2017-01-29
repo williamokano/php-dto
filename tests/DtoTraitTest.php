@@ -129,10 +129,19 @@ class DtoTraitTest extends PHPUnit_Framework_TestCase
         $this->traitObject->cleanProperty('lastName');
         $this->assertEquals(['name' => 'William', 'age' => 28], $this->traitObject->getChangedProperties());
 
+        $this->assertTrue(isset($this->traitObject->name));
+
+        $this->traitObject->delete('name');
+        $this->assertEquals(['lastName' => 'Okano', 'age' => 28], $this->traitObject->getProperties());
+        $this->assertEquals(['age' => 28], $this->traitObject->getChangedProperties());
+
         // Reset all properties
         $this->traitObject->cleanAll();
-        $this->assertEquals(['name' => 'William', 'lastName' => 'Okano', 'age' => 28], $this->traitObject->getProperties());
+        $this->assertEquals(['lastName' => 'Okano', 'age' => 28], $this->traitObject->getProperties());
         $this->assertEquals([], $this->traitObject->getChangedProperties());
+
+        unset($this->traitObject->age);
+        $this->assertEquals(['lastName' => 'Okano'], $this->traitObject->getProperties());
     }
 
     private function createObjectForTrait()
