@@ -53,6 +53,38 @@ class DtoTraitTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(666, $this->traitObject->get('okano', 666), 'The returned value is not 666');
     }
 
+    public function testChanged()
+    {
+        $this->traitObject->fill(['d' => 4], true);
+        $this->assertObjectHasAttribute('dtoProperties', $this->traitObject, 'dtoProperties not found');
+        $this->assertAttributeEquals(['d' => 4], 'dtoProperties', $this->traitObject, 'dtoProperties did not replace the elements for the "d" property only');
+        $this->assertObjectHasAttribute('dtoChangedProperties', $this->traitObject, 'dtoChangedProperties not found');
+        $this->assertAttributeEquals([], 'dtoChangedProperties', $this->traitObject, 'dtoChangedProperties did not reseted as exptected');
+
+        // Change with set
+        $this->traitObject->set('d', 5);
+        $this->assertAttributeEquals(['d' => 5], 'dtoProperties', $this->traitObject, 'dtoProperties did not changed the value for 5');
+        $this->assertTrue($this->traitObject->changed('d'), 'The property "d" was not flagged as changed');
+
+        // Change with fill without replace
+        $this->traitObject->fill(['d' => 'okano']);
+        $this->assertAttributeEquals(['d' => 'okano'], 'dtoProperties', $this->traitObject, 'dtoProperties did not changed the value for 5');
+        $this->assertTrue($this->traitObject->changed('d'), 'The property "d" was not flagged as changed');
+        $this->assertEquals('okano', $this->traitObject->get('d'));
+
+        // Set as clean
+        $this->traitObject->cleanProperty('d');
+        $this->assertObjectHasAttribute('dtoChangedProperties', $this->traitObject, 'dtoChangedProperties not found');
+        $this->assertAttributeEquals(['d' => false], 'dtoChangedProperties', $this->traitObject, 'dtoChangedProperties did not reseted as exptected');
+        $this->assertFalse($this->traitObject->changed('d'), 'Property "d" flagged as changed yet');
+
+        // Change with fill with replace, should reset changed
+        $this->traitObject->fill(['d' => 'okano'], true);
+        $this->assertAttributeEquals(['d' => 'okano'], 'dtoProperties', $this->traitObject, 'dtoProperties did not changed the value for 5');
+        $this->assertFalse($this->traitObject->changed('d'), 'The property "d" was not flagged as changed');
+        $this->assertEquals('okano', $this->traitObject->get('d'));
+    }
+
     private function createObjectForTrait()
     {
         $traitName = Dto::class;
