@@ -37,6 +37,15 @@ interface IDto
     public function get($property, $default = null);
 
     /**
+     * Given a property, unset some value from the DTO.
+     *
+     * @param int|float|null|string|bool $property
+     *
+     * @return $this
+     */
+    public function delete($property);
+
+    /**
      * Get all properties of the DTO object.
      *
      * @return array

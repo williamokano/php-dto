@@ -86,6 +86,24 @@ trait Dto
     }
 
     /**
+     * Given a property, unset some value from the DTO.
+     *
+     * @param int|float|null|string|bool $property
+     *
+     * @return $this
+     */
+    public function delete($property)
+    {
+        $this->validateProperty($property);
+        if ($this->hasProperty($property)) {
+            $this->cleanProperty($property);
+            unset($this->dtoProperties[$property]);
+        }
+
+        return $this;
+    }
+
+    /**
      * Get all properties of the DTO object.
      *
      * @return array
@@ -209,6 +227,28 @@ trait Dto
     public function __set($property, $value)
     {
         $this->set($property, $value);
+    }
+
+    /**
+     * Magic method to unset a value.
+     *
+     * @param $property
+     */
+    public function __unset($property)
+    {
+        $this->delete($property);
+    }
+
+    /**
+     * Magic method to check if the property exists.
+     *
+     * @param $property
+     *
+     * @return bool
+     */
+    public function __isset($property)
+    {
+        return $this->hasProperty($property);
     }
 
     /**
