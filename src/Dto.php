@@ -133,11 +133,15 @@ trait Dto
      */
     public function getChangedProperties()
     {
-        $changedProperties = array_keys($this->dtoChangedProperties);
+        $changedProperties = array_keys(array_filter($this->dtoChangedProperties, function ($changed) {
+            return !!$changed;
+        }));
 
-        return array_map(function ($property) {
-            return $this->dtoProperties[$property];
-        }, $changedProperties);
+        return array_reduce($changedProperties, function ($acc, $property) {
+            $acc[$property] = $this->dtoProperties[$property];
+
+            return $acc;
+        }, []);
     }
 
     /**

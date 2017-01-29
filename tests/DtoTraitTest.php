@@ -118,6 +118,23 @@ class DtoTraitTest extends PHPUnit_Framework_TestCase
         }
     }
 
+    public function testGetProperties()
+    {
+        $this->traitObject->name = 'William';
+        $this->traitObject->lastName = 'Okano';
+        $this->traitObject->age = 28;
+        $this->assertEquals(['name' => 'William', 'lastName' => 'Okano', 'age' => 28], $this->traitObject->getProperties());
+        $this->assertEquals(['name' => 'William', 'lastName' => 'Okano', 'age' => 28], $this->traitObject->getChangedProperties());
+
+        $this->traitObject->cleanProperty('lastName');
+        $this->assertEquals(['name' => 'William', 'age' => 28], $this->traitObject->getChangedProperties());
+
+        // Reset all properties
+        $this->traitObject->cleanAll();
+        $this->assertEquals(['name' => 'William', 'lastName' => 'Okano', 'age' => 28], $this->traitObject->getProperties());
+        $this->assertEquals([], $this->traitObject->getChangedProperties());
+    }
+
     private function createObjectForTrait()
     {
         $traitName = Dto::class;
