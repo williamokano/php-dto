@@ -9,6 +9,7 @@ interface IDto
      *
      * @param array $data Key/Value
      * @param bool $replace Pass true if you want to replace all the properties by the new $data array
+     *
      * @return $this
      */
     public function fill(array $data = [], $replace = false);
@@ -18,6 +19,7 @@ interface IDto
      *
      * @param int|float|null|string|bool $property A scalar value or null
      * @param mixed $value Can be anything
+     *
      * @return $this
      */
     public function set($property, $value);
@@ -29,6 +31,7 @@ interface IDto
      *
      * @param int|float|null|string|bool $property
      * @param mixed $default
+     *
      * @return mixed
      */
     public function get($property, $default = null);
@@ -44,6 +47,7 @@ interface IDto
      * Check if the given property exists.
      *
      * @param int|float|null|string|bool $property
+     *
      * @return bool
      */
     public function hasProperty($property);
@@ -52,6 +56,7 @@ interface IDto
      * Check if the given property has changed.
      *
      * @param int|float|null|string|bool $property
+     *
      * @return mixed
      */
     public function changed($property);
@@ -67,6 +72,7 @@ interface IDto
      * Set a specific property as non-changed. Best used when using along with active record and the values are all saved.
      *
      * @param int|float|null|string|bool $property
+     *
      * @return $this
      */
     public function cleanProperty($property);

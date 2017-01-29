@@ -4,7 +4,6 @@ enabled:
   - extra_empty_lines
   - short_array_syntax
   - no_empty_lines_after_phpdocs
-  - phpdoc_align
   - phpdoc_indent
   - phpdoc_inline_tag
   - phpdoc_no_access

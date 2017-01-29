@@ -6,6 +6,7 @@ use InvalidArgumentException;
 
 /**
  * Trait that adds support to auto generated properties
+ *
  * @package Katapoka\Katapoka
  */
 trait Dto
@@ -30,6 +31,7 @@ trait Dto
      *
      * @param array $data Key/Value
      * @param bool $replace Pass true if you want to replace all the properties by the new $data array
+     *
      * @return $this
      */
     public function fill(array $data = [], $replace = false)
@@ -50,6 +52,7 @@ trait Dto
      *
      * @param int|float|null|string|bool $property A scalar value or null
      * @param mixed $value Can be anything
+     *
      * @return $this
      */
     public function set($property, $value)
@@ -71,6 +74,7 @@ trait Dto
      *
      * @param int|float|null|string|bool $property
      * @param mixed $default
+     *
      * @return mixed
      */
     public function get($property, $default = null)
@@ -97,6 +101,7 @@ trait Dto
      * Checks if the given property exists.
      *
      * @param int|float|null|string|bool $property
+     *
      * @return bool
      */
     public function hasProperty($property)
@@ -109,6 +114,7 @@ trait Dto
      * Check if the given property has changed.
      *
      * @param int|float|null|string|bool $property
+     *
      * @return mixed
      */
     public function changed($property)
@@ -138,6 +144,7 @@ trait Dto
      * Set a specific property as non-changed. Best used when using along with active record and the values are all saved.
      *
      * @param int|float|null|string|bool $property
+     *
      * @return $this
      */
     public function cleanProperty($property)
@@ -168,6 +175,7 @@ trait Dto
      * Magic method to get value from the object.
      *
      * @param $property
+     *
      * @return mixed
      */
     public function __get($property)
@@ -190,6 +198,7 @@ trait Dto
      * Check if the property has valid name.
      *
      * @param mixed $property
+     *
      * @throws InvalidArgumentException
      */
     private function validateProperty($property)
@@ -203,6 +212,7 @@ trait Dto
      * Check if the given key is valid for property.
      *
      * @param mixed $key Anything
+     *
      * @return bool
      */
     private function isKeyValid($key)
