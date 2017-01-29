@@ -1,20 +1,22 @@
 {
-    "name": "williamokano/php-dto",
-    "description": "Simple DTO for PHP",
-    "type": "library",
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "\\Katapoka\\Katapoka\\": "src/",
-            "\\Katapoka\\Katapoka\\Tests\\": "tests/"
-        }
-    },
-    "authors": [
-        {
-            "name": "William Okano",
-            "email": "williamokano@gmail.com"
-        }
-    ],
-    "minimum-stability": "stable",
-    "require": {}
+  "name": "williamokano/php-dto",
+  "description": "Simple DTO for PHP",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "\\Katapoka\\Katapoka\\": "src/",
+      "\\Katapoka\\Katapoka\\Tests\\": "tests/"
+    }
+  },
+  "authors": [
+    {
+      "name": "William Okano",
+      "email": "williamokano@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=5.4"
+  }
 }
