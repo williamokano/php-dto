@@ -1,0 +1,14 @@
+{
+    "name": "williamokano/php-dto",
+    "description": "Simple DTO for PHP",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "William Okano",
+            "email": "williamokano@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
