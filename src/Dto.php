@@ -228,5 +228,4 @@ trait Dto
     {
         $this->dtoChangedProperties[$property] = true;
     }
-
 }
