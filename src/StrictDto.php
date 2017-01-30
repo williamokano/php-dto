@@ -68,7 +68,7 @@ trait StrictDto
      *
      * @return array
      */
-    abstract function getConstraints();
+    abstract public function getConstraints();
 
     /**
      * Check if when the constraint fails if it should raise an exception or not.
@@ -107,5 +107,4 @@ trait StrictDto
 
         return true;
     }
-
 }
