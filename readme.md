@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/williamokano/php-dto.svg?branch=master)](https://travis-ci.org/williamokano/php-dto)
 [![Build Status](https://travis-ci.org/williamokano/php-dto.svg?branch=master)](https://travis-ci.org/williamokano/php-dto)
 [![StyleCI](https://styleci.io/repos/80348640/shield?branch=master)](https://styleci.io/repos/80348640)
+[![Code Climate](https://codeclimate.com/github/williamokano/php-dto/badges/gpa.svg)](https://codeclimate.com/github/williamokano/php-dto)
 
 # Simple PHP DTO
 
